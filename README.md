@@ -13,8 +13,8 @@ Tested on Node > 5.7.x
 How
 ===
 
-1. run a JS profiling session with chrome, desktop or mobile
-2. "Save Timeline Data"
+1. From the Chrome dev tools "Timeline" tab, start a profiling session, desktop or mobile
+2. End, then "Save Timeline Data", to have the JSON export
 3. provide ``index.js`` with the path to the file
 4. run ``npm start``
 5. Read the output
