@@ -1,0 +1,14 @@
+{
+  "name": "3rd-party-cpu-abuser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start":"node index.js"
+  },
+  "author": "JP vincent",
+  "license": "ISC",
+  "dependencies": {
+    "devtools-timeline-model": "1.1.4"
+  }
+}
