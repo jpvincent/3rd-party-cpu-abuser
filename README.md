@@ -10,7 +10,7 @@ Install
 Tested on Node > 5.7.x
 
 
-How
+Steps
 ===
 
 1. From the Chrome dev tools "Timeline" tab, start a profiling session, desktop or mobile
@@ -25,9 +25,9 @@ Output (from an android tablet on a newspaper website with lots of 3rd party) :
 Analyzing TimelineRawData-20160616T142901.json
 Total CPU busy time : 26026.48
 Number of big offenders (> 100ms) :  30
-##
+## Top CPU abusers, per hostname :
 6559.08 (no-domain)
-3990.98 my.domain.fr
+3990.98 statics.mydomain.com
 2220.93 cdn.adnxs.com
 1810.60 cdn.taboola.com
 1193.47 animate.adobe.com
@@ -36,7 +36,7 @@ Number of big offenders (> 100ms) :  30
 797.66 cdn.teads.tv
 673.33 s0.2mdn.net
 630.80 srv.azureedge.net
-535.71 www.lexpress.fr
+535.71 www.mydomain.com
 533.92 www6.smartadserver.com
 533.27 cdnjs.cloudflare.com
 473.87 render.helios.ligatus.com
@@ -51,7 +51,14 @@ How to read it :
 
 time => domain : time is in milliseconds, domain is where the JS is hosted. The profiler counts the time spent in each function, and by getting down to the callstack, it knows in which file, on which domain it was defined. We add up everything and it gives you a good idea of which 3rd party let your page lag
 
-(no-domain) is everything that could not be determined :
-* browser
-* plugins
+(no-domain) is what is not tied to someone in particular :
+* browser (parse CSS, HTML)
+* JS VM (V8.compile, minor and major Garbage Collector)
+* plugins, if you forgot to run profiler in private mode
 * ``eval()`` … more and more 3rd party use it so certainly some of them are not identified in the listing above
+
+How
+===
+
+It uses Paul Irish's [https://github.com/paulirish/devtools-timeline-model](devtools-timeline-model) that extracts meaningful data from a raw Timeline Data JSON file.
+It just compute stats for each domain
