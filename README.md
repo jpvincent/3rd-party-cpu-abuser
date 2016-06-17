@@ -60,5 +60,5 @@ time => domain : time is in milliseconds, domain is where the JS is hosted. The 
 How
 ===
 
-It uses Paul Irish's [https://github.com/paulirish/devtools-timeline-model](devtools-timeline-model) that extracts meaningful data from a raw Timeline Data JSON file.
+It uses [Paul Irish's devtools-timeline-model](https://github.com/paulirish/devtools-timeline-model) that extracts meaningful data from a raw Timeline Data JSON file.
 It just compute stats for each domain
