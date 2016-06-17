@@ -1,7 +1,7 @@
 'use strict'
 
 const filename = 'article-prod.json'
-const ignoreTime = 100 // in ms : under this limit, we ignore the domain
+const ignoreTime = 150 // in ms : under this limit, we ignore the domain
 
 const fs = require('fs')
 const url = require('url')
@@ -32,7 +32,7 @@ for (let domainName in topCostsByDomain) {
   })
 }
 
-// ignore if < 100 ms, sort by time
+// ignore if < 150 ms, sort by time
 domainsCost = domainsCost
   .filter((cost) => cost.time > ignoreTime)
   .sort((b, a) => a.time - b.time)
