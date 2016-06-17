@@ -5,10 +5,10 @@ Lot of sites are bloated with ads and other 3rd parties, all of them trying to a
 
 Install
 ===
-``npm install``
+
+``npm install 3rd-party-cpu-abuser``
 
 Tested on Node > 5.7.x
-
 
 Steps
 ===
@@ -73,3 +73,5 @@ Future
 ** is CPU consumed before / after DOM ready, before / after onload
 ** how many times the CPU runs for more than 150 ms
 ** how many forced reflows ([like here](https://github.com/paulirish/automated-chrome-profiling/blob/master/test-for-layout-thrashing.js))
+* compare 2 different runs side by side
+* add Alias for domains (eg : cdn.adnxs.com is appNexus, 2mdn.net is Doubleclick)

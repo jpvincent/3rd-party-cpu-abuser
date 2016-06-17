@@ -1,6 +1,6 @@
 'use strict'
 
-const filename = 'article-prod.json'
+const filename = 'samples/article-paysage.json'
 const ignoreTime = 150 // in ms : under this limit, we ignore the domain
 
 const fs = require('fs')

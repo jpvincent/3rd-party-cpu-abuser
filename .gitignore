@@ -5,3 +5,4 @@ pkg/
 *.swp
 .DS_Store
 node_modules/
+samples/
