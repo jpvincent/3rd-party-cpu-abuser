@@ -1,19 +1,23 @@
 {
   "name": "3rd-party-cpu-abuser",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "From a Chrome Dev Tools recorded timeline saved as JSON, this will help you identify quickly wich domain name eats most of the CPU",
-  "keywords":"webperf performance devtools 3rd-party profiling",
-  "homepage":"https://github.com/jpvincent/3rd-party-cpu-abuser",
+  "keywords": "webperf performance devtools 3rd-party profiling",
+  "homepage": "https://github.com/jpvincent/3rd-party-cpu-abuser",
   "main": "index.js",
-  "bugs":"https://github.com/jpvincent/3rd-party-cpu-abuser/issues",
-  "repository":"git+https://github.com/jpvincent/3rd-party-cpu-abuser.git",
-  "engines" :{ "node" : ">=5.7.1" },
+  "bugs": "https://github.com/jpvincent/3rd-party-cpu-abuser/issues",
+  "repository": "git+https://github.com/jpvincent/3rd-party-cpu-abuser.git",
+  "engines": {
+    "node": ">=6.3.0"
+  },
   "scripts": {
-    "start":"node index.js"
+    "start": "echo \"Simply run 'node index.js path/to/yourTraceFile.json'\""
   },
   "author": "jpvincent",
   "license": "ISC",
   "dependencies": {
+    "cli-table": "0.3.1",
+    "commander": "2.9.0",
     "devtools-timeline-model": "1.1.6"
   }
 }
