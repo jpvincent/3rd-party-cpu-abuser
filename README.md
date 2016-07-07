@@ -15,7 +15,7 @@ Steps
 
 1. From the Chrome dev tools "Timeline" tab, start a profiling session, desktop or mobile
 2. End, then "Save Timeline Data", to have the JSON export
-3. run ``node index.js the-path-to-the-json-file``
+3. run ``node index.js path/to/the.json``
 4. Read the output
 
 Output (from an android tablet on a newspaper website with lots of 3rd party) :
@@ -32,13 +32,13 @@ Analyzing TimelineRawData-20160616T142901.json
 ┌──────────┬───────────────────────────────┐
 │ CPU Time │ domain name                   │
 ├──────────┼───────────────────────────────┤
-│ 9671.66  │ (no-domain)                   │
+│ 2826.57  │ cdn.adnxs.com                 │
 ├──────────┼───────────────────────────────┤
 │ 2160.30  │ static.mysite.fr              │
 ├──────────┼───────────────────────────────┤
 │ 2083.50  │ www.facebook.com              │
 ├──────────┼───────────────────────────────┤
-│ 1826.57  │ cdn.adnxs.com                 │
+│ 9671.66  │ (no-domain)                   │
 ├──────────┼───────────────────────────────┤
 │ 746.00   │ connect.facebook.net          │
 ├──────────┼───────────────────────────────┤
@@ -81,7 +81,7 @@ If you want to help me with those, you're welcome :
 * add Alias for domains (eg : cdn.adnxs.com is appNexus, 2mdn.net is Doubleclick…)
 * output as JSON
 * add score for each domain :
-* * is CPU consumed before / after DOM ready, before / after onload
-* * how many times the CPU runs at 100% for more than 150 ms (so, blocks the UI)
-* * how many forced reflows ([like here](https://github.com/paulirish/automated-chrome-profiling/blob/master/test-for-layout-thrashing.js))
+  * is CPU consumed before / after DOM ready, before / after onload
+  * how many times the CPU runs at 100% for more than 150 ms (so, blocks the UI)
+  * how many forced reflows ([like here](https://github.com/paulirish/automated-chrome-profiling/blob/master/test-for-layout-thrashing.js))
 * compare 2 different runs side by side
