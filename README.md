@@ -52,8 +52,8 @@ How to read it :
 time => domain : time is in milliseconds, domain is where the JS is hosted. The profiler counts the time spent in each function, and by getting down to the callstack, it knows in which file, on which domain it was defined. We add up everything and it gives you a good idea of which 3rd party let your page lag
 
 (no-domain) is what is not tied to someone in particular :
-* browser (parse CSS, HTML)
-* JS VM (V8.compile, minor and major Garbage Collector)
+* browser (parse CSS and HTML, layout and composite, the profiler itself)
+* JS VM (V8.compile, minor and major Garbage Collector, RegExp engine …)
 * plugins, if you forgot to run profiler in private mode
 * ``eval()`` … more and more 3rd party use it so certainly some of them are not identified in the listing above
 
@@ -69,9 +69,10 @@ Future
 
 * manage CLI argument (file to parse, time limit)
 * better display (table)
+* display the timeline total time, to compare to the CPU total time
 * add score for each domain :
 ** is CPU consumed before / after DOM ready, before / after onload
-** how many times the CPU runs for more than 150 ms
+** how many times the CPU runs at 100% for more than 150 ms (so, blocks the UI)
 ** how many forced reflows ([like here](https://github.com/paulirish/automated-chrome-profiling/blob/master/test-for-layout-thrashing.js))
 * compare 2 different runs side by side
 * add Alias for domains (eg : cdn.adnxs.com is appNexus, 2mdn.net is Doubleclick)
