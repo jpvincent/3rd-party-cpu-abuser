@@ -10,12 +10,12 @@ Install
 
 Working from Node 6.3.0
 
-Steps
+Usage
 ===
 
 1. From the Chrome dev tools "Timeline" tab, start a profiling session, desktop or mobile
 2. End, then "Save Timeline Data", to have the JSON export
-3. run ``node index.js path/to/the.json``
+3. run ``node cpu-abuser.js path/to/the.json``
 4. Read the output
 
 Output (from an android tablet on a newspaper website with lots of 3rd party) :

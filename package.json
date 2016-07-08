@@ -11,13 +11,13 @@
     "node": ">=6.3.0"
   },
   "scripts": {
-    "start": "echo \"Simply run 'node index.js path/to/yourTraceFile.json'\""
+    "start": "echo \"Simply run 'node cpu-abuser.js path/to/yourTraceFile.json'\""
   },
   "author": "jpvincent",
   "license": "ISC",
   "dependencies": {
     "cli-table": "0.3.1",
-    "commander": "2.9.0",
-    "devtools-timeline-model": "1.1.6"
+    "devtools-timeline-model": "1.1.6",
+    "nopt": "3.0.6"
   }
 }
