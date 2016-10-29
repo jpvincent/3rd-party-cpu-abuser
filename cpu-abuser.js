@@ -1,22 +1,21 @@
 'use strict'
 
 const fs = require('fs')
-const url = require('url')
 const path = require('path')
 const Table = require('cli-table')
 
 // ARGUMENTS
 const options = require('nopt')(
-  {file:path, 'min-time':Number}, // type check
-  {f:['--file'], t:['--min-time']} // shorthand
+  { file: path, 'min-time': Number }, // type check
+  { f: ['--file'], t: ['--min-time'] } // shorthand
 )
 
 // if -f option is not given, take the first argument we have
 const filename = options.files || options.argv.remain[0]
 try {
-  fs.accessSync(filename, fs.constants.R_OK);
-}catch(e){
-  throw "Please provide a .json file to analyze"
+  fs.accessSync(filename, fs.constants.R_OK)
+} catch (e) {
+  throw 'Please provide a .json file to analyze'
 }
 // in ms : under this limit, we ignore the domain
 const ignoreTime = Number(options.minTime) || 150
@@ -32,6 +31,15 @@ const model = new TraceToTimelineModel(fs.readFileSync(filename, 'utf8'))
 const topCosts = [...model.bottomUpGroupBy('Subdomain').children.values()]
 const completeTime = topCosts.reduce((total, node) => total + node.totalTime, 0)
 
+// @TODO : test forced relayouts
+// https://github.com/paulirish/automated-chrome-profiling/blob/master/test-for-layout-thrashing.js
+/* console.log(model.frameModel())
+const forcedReflowEvents = model.frameModel().frames()
+  .filter( e => e.name == 'UpdateLayoutTree' || e.name == 'Layout')
+  .filter( e => e.args && e.args.beginData && e.args.beginData.stackTrace && e.args.beginData.stackTrace.length)
+console.log('forcedReflowEvents', forcedReflowEvents)
+*/
+
 // ignore if < 150 ms, sort by time
 const filteredTopCosts = topCosts
   // rename the unassigned
@@ -41,22 +49,21 @@ const filteredTopCosts = topCosts
   })
   // ignore small contributions
   .filter((node) => node.totalTime > ignoreTime)
-  //.sort((b, a) => a.time - b.time)
+  // .sort((b, a) => a.time - b.time)
 
-
+// @TODO outputting as JSON would be good for use by another program
 // DISPLAY
-const tableStats = new Table()
-tableStats.push(
-  {'Total CPU busy time': completeTime.toFixed(2) },
-  {'Total number of domains': topCosts.length },
-  {'Number of big offenders': filteredTopCosts.length}
+const tableSummary = new Table()
+tableSummary.push(
+  { 'Total CPU busy time (ms)': completeTime.toFixed(2) },
+  { 'Total number of domains': topCosts.length },
+  { 'Number of big offenders': filteredTopCosts.length }
 )
-console.log(tableStats.toString());
+console.log(tableSummary.toString())
 
 const tableData = new Table({
-    head: ['CPU Time', 'domain name'],
-//  , colWidths: [100, 200]
+  head: ['CPU Time (ms)', 'domain name']
 })
 
-filteredTopCosts.forEach((node) => tableData.push( [node.totalTime.toFixed(2), node.id]))
-console.log(tableData.toString());
+filteredTopCosts.forEach((node) => tableData.push([node.totalTime.toFixed(2), node.id]))
+console.log(tableData.toString())
