@@ -96,3 +96,4 @@ If you want to help me with those, you're welcome :
   * how many times the CPU runs at 100% for more than 150 ms (so, blocks the UI)
   * how many forced reflows ([like here](https://github.com/paulirish/automated-chrome-profiling/blob/master/test-for-layout-thrashing.js))
 * compare 2 different runs side by side
+* add tests
