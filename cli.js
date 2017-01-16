@@ -7,7 +7,8 @@ const cliOptions = require('nopt')(
   { // shorthand
     f: ['--file'],
     t: ['--min-time'],
-    o: ['--output']
+    o: ['--output'],
+    json: ['--output=json']
   }
 )
 

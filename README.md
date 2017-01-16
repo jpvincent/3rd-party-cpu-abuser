@@ -3,15 +3,13 @@ Why
 
 Lot of sites are bloated with ads and other 3rd parties, all of them trying to abuse the CPU, leading the user to leave because the page is so laggy. JS Profiling is often the key to start a negociation with your 3rd party (or remove them…) but takes time. This project will help you identify quickly wich domain name eats most of the CPU.
 
-Install
-===
+# Install
 
 ``npm install 3rd-party-cpu-abuser``
 
 Working from Node 6.3.0
 
-Usage
-===
+# Usage from CLI
 
 1. From the Chrome dev tools "Timeline" tab, start a profiling session, desktop or mobile
 2. End, then "Save Timeline Data", to have the JSON export
@@ -67,19 +65,32 @@ time => domain : time is in milliseconds, domain is where the JS is hosted. The 
 * plugins, if you forgot to run profiler in private mode
 * ``eval()`` … more and more 3rd party use it so certainly some of them are not identified in the listing above
 
-How
-===
+## JSON export
+
+Alternatively you can access the same data as JSON :
+`node cli.js path/to/the.json --json`
+
+Or you can write your own nodeJS module and use it :
+
+```javascript
+const statsPerDomain = require('3rd-party-cpu-abuser')
+console.log(
+  statsPerDomain.data({
+    file: 'path/to/the.json'
+  })
+)
+```
+
+# How
 
 It uses [Paul Irish's devtools-timeline-model](https://github.com/paulirish/devtools-timeline-model) that extracts meaningful data from a raw Timeline Data JSON file.
 It just compute stats for each domain and display it nicely.
 
 
-Future
-===
+# Future
 
 If you want to help me with those, you're welcome :
 * add Alias for domains (eg : cdn.adnxs.com is appNexus, 2mdn.net is Doubleclick…)
-* output as JSON
 * add score for each domain :
   * is CPU consumed before / after DOM ready, before / after onload
   * how many times the CPU runs at 100% for more than 150 ms (so, blocks the UI)
