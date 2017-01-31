@@ -11,13 +11,24 @@
     "node": ">=6.3.0"
   },
   "scripts": {
-    "start": "echo \"Simply run 'node cli.js path/to/yourTraceFile.json'\""
+    "start": "echo \"Simply run 'node cli.js path/to/yourTraceFile.json'\"",
+    "test":"jest",
+    "testing":"jest --watch"
   },
+  "jest": {
+    "collectCoverage":true,
+    "collectCoverageFrom":"*.js",
+    "coverageDirectory":"__coverage"
+  },
+
   "author": "jpvincent",
   "license": "ISC",
   "dependencies": {
     "cli-table": "0.3.1",
     "devtools-timeline-model": "1.2.2",
     "nopt": "3.0.6"
+  },
+  "devDependencies": {
+    "jest": "^18.1.0"
   }
 }

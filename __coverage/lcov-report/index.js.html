@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for index.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="prettify.css" />
+    <link rel="stylesheet" href="base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="index.html">All files</a> index.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">66.67% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>22/33</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">75% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>3/4</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">71.43% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>5/7</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">67.74% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>21/31</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">51x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">51x</span>
+<span class="cline-any cline-yes">51x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">51x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const fs = require('fs')
+const path = require('path')
+const Table = require('cli-table')
+&nbsp;
+// full external API
+exports.toTableConsole = <span class="fstat-no" title="function not covered" >op</span>tions =&gt; <span class="cstat-no" title="statement not covered" >toTableConsole(main(options))</span>
+exports.data = main
+&nbsp;
+// actual code
+// supported options :
+// file: (String) Path to a file
+// minTime: (Number) under this limit, the domain is ignored. Set to 0 to have them all
+function main(options) {
+  try {
+    fs.accessSync(options.file, fs.constants.R_OK)
+  } catch (e) {
+    throw 'Please provide a .json file to analyze'
+  }
+  // in ms : under this limit, we ignore the domain
+  const ignoreTime = Number(options.minTime) || 150
+&nbsp;
+  // GET DATA
+  // uses https://github.com/paulirish/devtools-timeline-model
+  const TraceToTimelineModel = require('devtools-timeline-model')
+  const model = new TraceToTimelineModel(fs.readFileSync(options.file, 'utf8'))
+&nbsp;
+  // get all CPU time, already grouped by FQDN
+  const topCosts = [...model.bottomUpGroupBy('Subdomain').children.values()]
+  const completeTime = topCosts.reduce((total, node) =&gt; total + node.totalTime, 0)
+&nbsp;
+  // @TODO : test forced relayouts
+  // https://github.com/paulirish/automated-chrome-profiling/blob/master/test-for-layout-thrashing.js
+  /* console.log(model.frameModel())
+  const forcedReflowEvents = model.frameModel().frames()
+    .filter( e =&gt; e.name == 'UpdateLayoutTree' || e.name == 'Layout')
+    .filter( e =&gt; e.args &amp;&amp; e.args.beginData &amp;&amp; e.args.beginData.stackTrace &amp;&amp; e.args.beginData.stackTrace.length)
+  console.log('forcedReflowEvents', forcedReflowEvents)
+  */
+&nbsp;
+  // ignore if &lt; 150 ms, sort by time
+  const filteredTopCosts = topCosts
+    // rename the unassigned
+    .map((node) =&gt; {
+      node.id = node.id || <span class="branch-1 cbranch-no" title="branch not covered" >'(no-domain)'</span>
+      return node
+    })
+    // ignore small contributions
+    .filter((node) =&gt; node.totalTime &gt; ignoreTime)
+    // .sort((b, a) =&gt; a.time - b.time)
+&nbsp;
+  const data = {
+    // First, some stats
+    totalCPUTime: completeTime,
+    totalDomains: topCosts.length,
+    totalOffendersDomains: filteredTopCosts.length,
+    // then the filtered data
+    cpuTimePerDomain:{}
+  }
+  // associate a domain to a time
+  filteredTopCosts.forEach((node) =&gt; 
+    data.cpuTimePerDomain[node.id] = node.totalTime
+  )
+&nbsp;
+  return data
+}
+&nbsp;
+function <span class="fstat-no" title="function not covered" >toTableConsole(</span>data) {
+  const tableSummary = <span class="cstat-no" title="statement not covered" >new Table()</span>
+  let output = <span class="cstat-no" title="statement not covered" >''</span>
+  
+<span class="cstat-no" title="statement not covered" >  tableSummary.push(</span>
+    { 'Total CPU busy time (ms)': data.totalCPUTime.toFixed(2) },
+    { 'Total number of domains': data.totalDomains },
+    { 'Number of big offenders': data.totalOffendersDomains }
+  )
+<span class="cstat-no" title="statement not covered" >  output += tableSummary.toString()</span>
+<span class="cstat-no" title="statement not covered" >  output += '\n'</span>
+&nbsp;
+  const tableData = <span class="cstat-no" title="statement not covered" >new Table({</span>
+    head: ['CPU Time (ms)', 'domain name']
+  })
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  for(domainName in data.cpuTimePerDomain) {</span>
+<span class="cstat-no" title="statement not covered" >    tableData.push([data.cpuTimePerDomain[domainName].toFixed(2), domainName])</span>
+  }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  output += tableData.toString()</span>
+<span class="cstat-no" title="statement not covered" >  return output</span>
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Jan 31 2017 12:03:09 GMT+0100 (CET)
+</div>
+</div>
+<script src="prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="sorter.js"></script>
+</body>
+</html>
