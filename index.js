@@ -50,7 +50,7 @@ function main(options) {
 
   const data = {
     // First, some stats
-    totalCPUTime: completeTime.toFixed(2),
+    totalCPUTime: completeTime,
     totalDomains: topCosts.length,
     totalOffendersDomains: filteredTopCosts.length,
     // then the filtered data
@@ -58,7 +58,7 @@ function main(options) {
   }
   // associate a domain to a time
   filteredTopCosts.forEach((node) => 
-    data.cpuTimePerDomain[node.id] = node.totalTime.toFixed(2)
+    data.cpuTimePerDomain[node.id] = node.totalTime
   )
 
   return data
@@ -69,7 +69,7 @@ function toTableConsole(data) {
   let output = ''
   
   tableSummary.push(
-    { 'Total CPU busy time (ms)': data.totalCPUTime },
+    { 'Total CPU busy time (ms)': data.totalCPUTime.toFixed(2) },
     { 'Total number of domains': data.totalDomains },
     { 'Number of big offenders': data.totalOffendersDomains }
   )
@@ -81,7 +81,7 @@ function toTableConsole(data) {
   })
 
   for(domainName in data.cpuTimePerDomain) {
-    tableData.push([data.cpuTimePerDomain[domainName], domainName])
+    tableData.push([data.cpuTimePerDomain[domainName].toFixed(2), domainName])
   }
 
   output += tableData.toString()
