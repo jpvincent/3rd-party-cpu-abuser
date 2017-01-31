@@ -67,7 +67,8 @@ function main(options) {
 function toTableConsole(data) {
   const tableSummary = new Table()
   let output = ''
-  
+
+
   tableSummary.push(
     { 'Total CPU busy time (ms)': data.totalCPUTime.toFixed(2) },
     { 'Total number of domains': data.totalDomains },

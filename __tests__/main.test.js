@@ -6,11 +6,12 @@ jasmine.DEFAULT_TIMEOUT_INTERVAL = 15000
 
 describe('Common behaviour', () => {
   it('should throw an error if file does not exist', () => {
-    expect(cpuAbuser.data({
+    expect(() => cpuAbuser.data({
       file: 'non-existent'
     })).toThrow()
   })
 })
+
 
 describe('Node API with JSON results', () => {
   let result = cpuAbuser.data({
@@ -43,6 +44,7 @@ describe('Node API with JSON results', () => {
   it('VA-article.json analysis should exactly match the saved results', () => {
     //console.log(result)
     expect(result).toEqual(mockResult)
+    expect(result).toMatchSnapshot()
   })
 
 })

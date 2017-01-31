@@ -12,15 +12,14 @@
   },
   "scripts": {
     "start": "echo \"Simply run 'node cli.js path/to/yourTraceFile.json'\"",
-    "test":"jest",
-    "testing":"jest --watch"
+    "test": "jest",
+    "testing": "jest --watch"
   },
   "jest": {
-    "collectCoverage":true,
-    "collectCoverageFrom":"*.js",
-    "coverageDirectory":"__coverage"
+    "collectCoverage": true,
+    "collectCoverageFrom": "*.js",
+    "coverageDirectory": "__coverage"
   },
-
   "author": "jpvincent",
   "license": "ISC",
   "dependencies": {
@@ -29,6 +28,7 @@
     "nopt": "3.0.6"
   },
   "devDependencies": {
-    "jest": "^18.1.0"
+    "jest": "^18.1.0",
+    "node-cmd": "^1.2.0"
   }
 }

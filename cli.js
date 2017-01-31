@@ -12,6 +12,7 @@ const cliOptions = require('nopt')(
   }
 )
 
+
 // if -f (file) option is not given, assume the first CLI argument is the file path
 const options = {
   file: cliOptions.file || cliOptions.argv.remain[0],
