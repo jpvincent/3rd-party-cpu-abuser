@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1485872404003" clover="3.2.0">
-  <project timestamp="1485872404003" name="All files">
+<coverage generated="1515084826741" clover="3.2.0">
+  <project timestamp="1515084826741" name="All files">
     <metrics statements="38" coveredstatements="21" conditionals="8" coveredconditionals="3" methods="7" coveredmethods="5" elements="53" coveredelements="29" complexity="0" loc="38" ncloc="38" packages="1" files="2" classes="2">
       <file name="cli.js" path="/Users/jpv/Insync/Société/Clients/lexpress.fr/stat-cpu-domain/cli.js">
         <metrics statements="7" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="0" coveredmethods="0"/>
