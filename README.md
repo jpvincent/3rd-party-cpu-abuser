@@ -11,43 +11,39 @@ Working from Node 6.3.0
 
 # Usage from CLI
 
-1. From the Chrome dev tools "Timeline" tab, start a profiling session, desktop or mobile
-2. End, then "Save Timeline Data", to have the JSON export
+1. From the Chrome dev tools "Performance" tab, record a profiling session, desktop or mobile
+2. End, then "Save Profile", to have the JSON export
 3. run ``node cli.js path/to/the.json``
 4. Read the output
 
 Output (from an android tablet on a newspaper website with lots of 3rd party) :
 
 ```
-Analyzing TimelineRawData-20160616T142901.json
-┌─────────────────────────┬──────────┐
-│ Total CPU busy time     │ 22277.24 │
-├─────────────────────────┼──────────┤
-│ Total number of domains │ 46       │
-├─────────────────────────┼──────────┤
-│ Number of big offenders │ 19       │
-└─────────────────────────┴──────────┘
-┌──────────┬───────────────────────────────┐
-│ CPU Time │ domain name                   │
-├──────────┼───────────────────────────────┤
-│ 2826.57  │ cdn.adnxs.com                 │
-├──────────┼───────────────────────────────┤
-│ 2160.30  │ static.mysite.fr              │
-├──────────┼───────────────────────────────┤
-│ 2083.50  │ www.facebook.com              │
-├──────────┼───────────────────────────────┤
-│ 9671.66  │ (no-domain)                   │
-├──────────┼───────────────────────────────┤
-│ 746.00   │ connect.facebook.net          │
-├──────────┼───────────────────────────────┤
-│ 638.47   │ srv.azureedge.net             │
-├──────────┼───────────────────────────────┤
-│ 512.04   │ www.mysite.fr                 │
-├──────────┼───────────────────────────────┤
-│ 500.50   │ ajax.googleapis.com           │
-├──────────┼───────────────────────────────┤
-│ 328.81   │ www6.smartadserver.com        │
-└──────────┴───────────────────────────────┘
+Analyzing samples/VA-article.json
+┌──────────────────────────┬──────────┐
+│ Total CPU busy time (ms) │ 10107.07 │
+├──────────────────────────┼──────────┤
+│ Total number of domains  │ 57       │
+├──────────────────────────┼──────────┤
+│ Number of big offenders  │ 40       │
+└──────────────────────────┴──────────┘
+┌───────────────┬────────────────────────────────┐
+│ CPU Time (ms) │ domain name                    │
+├───────────────┼────────────────────────────────┤
+│ 1311.39       │ www.vogue.fr                   │
+├───────────────┼────────────────────────────────┤
+│ 865.91        │ z.moatads.com                  │
+├───────────────┼────────────────────────────────┤
+│ 835.78        │ pagead2.googlesyndication.com  │
+├───────────────┼────────────────────────────────┤
+│ 788.86        │ securepubads.g.doubleclick.net │
+├───────────────┼────────────────────────────────┤
+│ ………………        │ ……………………………………………………           │
+├───────────────┼────────────────────────────────┤
+│ 565.78        │ data05.adlooxtracking.com      │
+├───────────────┼────────────────────────────────┤
+│ 559.52        │ tpc.googlesyndication.com      │
+└───────────────┴────────────────────────────────┘
 
 ```
 
@@ -59,11 +55,6 @@ How to read it :
 
 time => domain : time is in milliseconds, domain is where the JS is hosted. The profiler counts the time spent in each function, and by getting down to the callstack, it knows in which file, on which domain it was defined. We add up everything and it gives you a good idea of which 3rd party let your page lag
 
-(no-domain) is what is not tied to someone in particular :
-* browser (parse CSS and HTML, layout and composite, the profiler itself)
-* JS VM (V8.compile, minor and major Garbage Collector, RegExp engine …)
-* plugins, if you forgot to run profiler in private mode
-* ``eval()`` … more and more 3rd party use it so certainly some of them are not identified in the listing above
 
 ## JSON export
 

@@ -1,6 +1,6 @@
 {
   "name": "3rd-party-cpu-abuser",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "From a Chrome Dev Tools recorded timeline saved as JSON, this will help you identify quickly wich domain name eats most of the CPU",
   "keywords": "webperf performance devtools 3rd-party profiling",
   "homepage": "https://github.com/jpvincent/3rd-party-cpu-abuser",
@@ -17,18 +17,18 @@
   },
   "jest": {
     "collectCoverage": true,
-    "collectCoverageFrom": "*.js",
+    "collectCoverageFrom": ["*.js"],
     "coverageDirectory": "__coverage"
   },
   "author": "jpvincent",
   "license": "ISC",
   "dependencies": {
     "cli-table": "0.3.1",
-    "devtools-timeline-model": "1.2.2",
-    "nopt": "3.0.6"
+    "devtools-timeline-model": "1.3.1",
+    "nopt": "4.0.1"
   },
   "devDependencies": {
-    "jest": "^18.1.0",
+    "jest": "^22.0.4",
     "node-cmd": "^1.2.0"
   }
 }

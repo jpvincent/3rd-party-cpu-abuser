@@ -17,7 +17,10 @@ function main(options) {
     throw 'Please provide a .json file to analyze'
   }
   // in ms : under this limit, we ignore the domain
-  const ignoreTime = Number(options.minTime) || 150
+  if('minTime' in options && !Number.isNaN(Number(options.minTime)))
+    var ignoreTime = Number(options.minTime)
+  else
+    var ignoreTime = 150
 
   // GET DATA
   // uses https://github.com/paulirish/devtools-timeline-model
