@@ -22,13 +22,38 @@ function main(options) {
   else
     var ignoreTime = 150
 
+  const groupBy = options.groupBy || 'Subdomain'
+  const startMark = options.startMark || null
+  const endMark = options.endMark || null
+
   // GET DATA
   // uses https://github.com/paulirish/devtools-timeline-model
   const TraceToTimelineModel = require('devtools-timeline-model')
   const model = new TraceToTimelineModel(fs.readFileSync(options.file, 'utf8'))
 
+  // Allow processing to be restricted by start/endMarks e.g. firstPaint
+  let startTimeStamp = 0
+  let endTimeStamp = Infinity
+
+  if(startMark != null) { // TODO(AD) should warn if mark doesn't exist
+
+    let records = model.sandbox._timelineModel._eventDividerRecords.filter(o => o._event.name === startMark)
+    if (records.length > 0) {
+        startTimeStamp = records[0]._event.startTime; // TODO(AD) what if there's more that one?
+    }
+  }
+
+  if(endMark != null) {
+
+    let records = model.sandbox._timelineModel._eventDividerRecords.filter(o => o._event.name == endMark)
+    if (records.length > 0) {
+        endTimeStamp = records[0]._event.startTime;
+    }
+  }
+
+
   // get all CPU time, already grouped by FQDN
-  const topCosts = [...model.bottomUpGroupBy('Subdomain').children.values()]
+  const topCosts = [...model.bottomUpGroupBy(groupBy, startTimeStamp, endTimeStamp).children.values()]
   const completeTime = topCosts.reduce((total, node) => total + node.totalTime, 0)
 
   // @TODO : test forced relayouts
