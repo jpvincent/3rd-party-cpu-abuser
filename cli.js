@@ -3,10 +3,16 @@ const cliOptions = require('nopt')(
   { // type check
     file: require('path'),
     'min-time': Number,
+    'group-by': ['None', 'Category', 'Subdomain', 'Domain', 'URL', 'EventName'],
+    startMark: String,
+    endMark: String,
     output: String },
   { // shorthand
     f: ['--file'],
     t: ['--min-time'],
+    g: ['--group-by'],
+    s: ['--startMark'],
+    e: ['--endMark'],
     o: ['--output'],
     json: ['--output=json']
   }
@@ -16,7 +22,10 @@ const cliOptions = require('nopt')(
 // if -f (file) option is not given, assume the first CLI argument is the file path
 const options = {
   file: cliOptions.file || cliOptions.argv.remain[0],
-  minTime: cliOptions['min-time']
+  minTime: cliOptions['min-time'],    
+  groupBy: cliOptions['group-by'],
+  startMark: cliOptions.startMark,
+  endMark: cliOptions.endMark
 }
 
 const statsPerDomain = require('./index')
