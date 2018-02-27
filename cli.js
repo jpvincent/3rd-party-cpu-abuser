@@ -3,14 +3,14 @@ const cliOptions = require('nopt')(
   { // type check
     file: require('path'),
     'min-time': Number,
-    'group-by': ['None', 'Category', 'Subdomain', 'Domain', 'URL', 'EventName'],
+    groupBy: ['None', 'Category', 'Subdomain', 'Domain', 'URL', 'EventName'],
     startMark: String,
     endMark: String,
     output: String },
   { // shorthand
     f: ['--file'],
     t: ['--min-time'],
-    g: ['--group-by'],
+    g: ['--groupBy'],
     s: ['--startMark'],
     e: ['--endMark'],
     o: ['--output'],
@@ -23,7 +23,7 @@ const cliOptions = require('nopt')(
 const options = {
   file: cliOptions.file || cliOptions.argv.remain[0],
   minTime: cliOptions['min-time'],    
-  groupBy: cliOptions['group-by'],
+  groupBy: cliOptions.groupBy,
   startMark: cliOptions.startMark,
   endMark: cliOptions.endMark
 }

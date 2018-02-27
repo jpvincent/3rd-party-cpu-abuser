@@ -35,24 +35,44 @@ function main(options) {
   let startTimeStamp = 0
   let endTimeStamp = Infinity
 
-  if(startMark != null) { // TODO(AD) should warn if mark doesn't exist
+  if(startMark !== null || endMark !== null) {
 
-    let records = model.sandbox._timelineModel._eventDividerRecords.filter(o => o._event.name === startMark)
-    if (records.length > 0) {
-        startTimeStamp = records[0]._event.startTime; // TODO(AD) what if there's more that one?
+    const events = rootFrameEvents(model)
+
+    // Start timestamp
+    if (startMark !== null) {
+      let startMarks = events.filter(entry => entry.name === startMark)
+      if (startMarks.length === 0) {
+        throw 'No entry for ' + startMark
+      }
+
+      if (startMarks.length > 1) {
+        console.warn('Found more than one entry for ' + startMark + ', using first')
+      }
+
+      startTimeStamp = startMarks[0].startTime;
+    }
+
+    // End timestamp
+    if (endMark !== null) {
+      let endMarks = events.filter(entry => entry.name === endMark)
+      if (endMarks.length === 0) {
+        throw 'No entry for ' + endMark
+      }
+
+      if (endMarks.length > 1) {
+        console.warn('Found more than one entry for ' + endMark + ', using first')    
+      }
+
+      endTimeStamp = endMarks[0].startTime;
     }
   }
 
-  if(endMark != null) {
-
-    let records = model.sandbox._timelineModel._eventDividerRecords.filter(o => o._event.name == endMark)
-    if (records.length > 0) {
-        endTimeStamp = records[0]._event.startTime;
-    }
-  }
+  
 
 
-  // get all CPU time, already grouped by FQDN
+
+  // get all CPU time, already grouped by option (default FQDN)
   const topCosts = [...model.bottomUpGroupBy(groupBy, startTimeStamp, endTimeStamp).children.values()]
   const completeTime = topCosts.reduce((total, node) => total + node.totalTime, 0)
 
@@ -115,4 +135,19 @@ function toTableConsole(data) {
 
   output += tableData.toString()
   return output
+}
+
+function rootFrameEvents(model) {
+
+  const rootFrames = model.sandbox._timelineModel.rootFrames();
+  if(rootFrames.length === 0) {
+    throw 'No root frame in trace'
+  }
+  if(rootFrames.length > 1) {
+    throw 'More than one root frame in trace'
+  }
+
+  const rootFrameId = rootFrames[0].frameId;
+
+  return model.sandbox._timelineModel._mainThreadEvents.filter(entry => entry.args.frame === rootFrameId)
 }
