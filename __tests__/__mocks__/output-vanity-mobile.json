@@ -1,0 +1,18 @@
+{ "totalCPUTime": 7189.355000168085,
+  "totalDomains": 55,
+  "totalOffendersDomains": 14,
+  "cpuTimePerDomain": 
+   { "m.vanityfair.fr": 1062.517999947071,
+     "securepubads.g.doubleclick.net": 801.206000238657,
+     "cdns.gigya.com": 601.3290000259876,
+     "fw.adsafeprotected.com": 560.256000071764,
+     "z.moatads.com": 437.3180001080036,
+     "widgets.outbrain.com": 427.435999751091,
+     "connect.facebook.net": 411.74199998378754,
+     "pcotag.azureedge.net": 396.0799999833107,
+     "adyoulike.omnitagjs.com": 347.20399993658066,
+     "platform.twitter.com": 267.3179999291897,
+     "cdns.eu1.gigya.com": 224.9640000462532,
+     "secure-ds.serving-sys.com": 207.50500014424324,
+     "www.googletagmanager.com": 192.87200009822845,
+     "pagead2.googlesyndication.com": 169.76800015568733 } }

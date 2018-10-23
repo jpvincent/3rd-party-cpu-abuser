@@ -28,8 +28,8 @@ function main(options) {
 
   // GET DATA
   // uses https://github.com/paulirish/devtools-timeline-model
-  const TraceToTimelineModel = require('devtools-timeline-model')
-  const model = new TraceToTimelineModel(fs.readFileSync(options.file, 'utf8'))
+  const DevtoolsTimelineModel = require('devtools-timeline-model')
+  const model = new DevtoolsTimelineModel(fs.readFileSync(options.file, 'utf8'))
 
   // Allow processing to be restricted by start/endMarks e.g. firstPaint
   let startTimeStamp = 0
@@ -67,10 +67,6 @@ function main(options) {
       endTimeStamp = endMarks[0].startTime;
     }
   }
-
-  
-
-
 
   // get all CPU time, already grouped by option (default FQDN)
   const topCosts = [...model.bottomUpGroupBy(groupBy, startTimeStamp, endTimeStamp).children.values()]
@@ -139,7 +135,7 @@ function toTableConsole(data) {
 
 function rootFrameEvents(model) {
 
-  const rootFrames = model.sandbox._timelineModel.rootFrames();
+  const rootFrames = model.sandbox._timelineModel.rootFrames()
   if(rootFrames.length === 0) {
     throw 'No root frame in trace'
   }

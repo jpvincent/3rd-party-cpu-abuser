@@ -1,6 +1,6 @@
 const cpuAbuser = require('../index')
-const mock = 'samples/VA-article.json'
-const mockResult = require('./mock-output-VA-article.json')
+const mockPath = '__tests__/__mocks__/trace-vanity-mobile.json'
+const mockResult = require('./__mocks__/output-vanity-mobile.json')
 
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 15000
 
@@ -17,7 +17,7 @@ let resultDefault
 
 describe('Node API with JSON results : default options', () => {
   let result = cpuAbuser.data({
-    file: mock
+    file: mockPath
   })
   resultDefault = result // for next test to compare
 
@@ -44,7 +44,7 @@ describe('Node API with JSON results : default options', () => {
     expect(result.cpuTimePerDomain['pagead2.googlesyndication.com']).toBe(mockResult.cpuTimePerDomain['pagead2.googlesyndication.com'])
   })
 
-  it('VA-article.json analysis should exactly match the saved results', () => {
+  it('trace-vanity-mobile.json analysis should exactly match the saved results', () => {
     //console.log(result)
     expect(result).toEqual(mockResult)
     expect(result).toMatchSnapshot()
@@ -52,9 +52,20 @@ describe('Node API with JSON results : default options', () => {
 
 })
 
+describe('results as console table : default options', () => {
+  let result = cpuAbuser.toTableConsole({
+    file: mockPath
+  })
+
+  it('should match the previous mock', () => {
+    expect(result).toMatchSnapshot()
+  })
+
+})
+
 describe('Node API with JSON results : minTime=10', () => {
   let result = cpuAbuser.data({
-    file: mock,
+    file: mockPath,
     minTime: 10
   })
 
@@ -66,12 +77,36 @@ describe('Node API with JSON results : minTime=10', () => {
 
 describe('Node API with JSON results : minTime=0', () => {
   let result = cpuAbuser.data({
-    file: mock,
+    file: mockPath,
     minTime: 0
   })
 
   it('Changing minTime should return more results', () => {
     expect(result.totalOffendersDomains).toBeGreaterThan(resultDefault.totalOffendersDomains)
   })
+
+})
+
+describe.only('Node API : groupBy=URL', () => {
+  let result = cpuAbuser.data({
+    file: mockPath,
+    groupBy: 'URL'
+  })
+
+  console.log(result)
+  it('should calculate CPU time on a per URL basis', () => {
+    // console.log(result)
+    expect(result.cpuTimePerDomain['https://pagead2.googlesyndication.com/pagead/osd.js']).toBeDefined()
+    expect(result.cpuTimePerDomain['https://pagead2.googlesyndication.com/pagead/osd.js']).toBe(169.76800015568733)
+  })
+
+  it('should calculate totalCPUTime', () => {
+    // console.log(result)
+    expect(result.totalCPUTime).toBe(mockResult.totalCPUTime)
+  })
+
+  /*it('Changing minTime should return more results', () => {
+    expect(result.totalOffendersDomains).toBeGreaterThan(resultDefault.totalOffendersDomains)
+  })*/
 
 })
