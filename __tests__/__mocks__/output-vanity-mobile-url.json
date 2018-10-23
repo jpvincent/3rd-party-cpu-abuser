@@ -1,0 +1,18 @@
+{ "totalCPUTime": 7196.367000192404,
+  "totalDomains": 107,
+  "totalOffendersDomains": 14,
+  "cpuTimePerDomain": 
+   { "https://securepubads.g.doubleclick.net/gpt/pubads_impl_266.js": 675.6090002954006,
+     "https://m.vanityfair.fr/js/8e5396e.js?Merlin=1539966386": 666.375,
+     "https://cdns.gigya.com/js/gigya.js?apiKey=3_QXGTBfzDYZBEgCHiP5M9fOfK3vd1rcAjGJNWuCs7D7ACSCd29to7bRnlkfwpsRU7&lang=fr": 541.6130000054836,
+     "https://z.moatads.com/condenastfrancedfp880166449012/moatad.js": 437.3180001080036,
+     "https://pcotag.azureedge.net/tag.js": 396.0799999833107,
+     "https://adyoulike.omnitagjs.com/": 347.20399993658066,
+     "https://widgets.outbrain.com/outbrain.js": 338.40899965167046,
+     "https://fw.adsafeprotected.com/rjss/bs.serving-sys.com/194919/29220415/BurstingPipe/adServer.bs?cn=rsb&c=28&pli=26140334&PluID=0&w=300&h=250&ncu=$$https://adclick.g.doubleclick.net/pcs/click?xai=AKAOjssAx76NklBUVglnyF0in9Fgw1HFCTCbaA4EuDZZjebuRXPr31RuK5_AzFHTnKrOfYnuewpDcNWOodDQmjMP16BA0D4T71j-yOsh-sq3H-duqA_qBZhMygHhXXAq-V9krpunzTtbQxPWiZifZ4I4DPoXXJAkfzTGE7zAKXIRDr952LU071Jvf4bi-2sI7bOD_OwUItPmuO2R9KEZXJsWqqPRwEkvHWe71y_7owS_zpog-V1BFpI8YS9Nw318kayXn76SVb1yf_-6RuwUATQTSI3DhjDJ&sai=AMfl-YRuhRyAUGzddcVDOj4eFSwFSROCVcV_khvKnVhBbEMHuZFsvLVKmJ5-3WNuHv9raVJ0ycAuEqrtZ6o3bMnmj35Vrjz9FZcf77yBMUXUnkzurRJ6R_qqTjUHnHs5&sig=Cg0ArKJSzDq2k0HpY4LyEAE&urlfix=1&adurl=$$&ord=858248335&ucm=true": 304.2569999694824,
+     "https://connect.facebook.net/fr_FR/sdk.js": 290.4869999587536,
+     "https://fw.adsafeprotected.com/rjss/bs.serving-sys.com/194919/29220413/BurstingPipe/adServer.bs?cn=rsb&c=28&pli=26140336&PluID=0&w=300&h=250&ncu=$$https://adclick.g.doubleclick.net/pcs/click?xai=AKAOjsu5VT5A272CYaHdbjCErgnnkDHr-BCFdQ6wFKugpi0Wibw_2tMpvCjNpFf86j8GAIb2um8vWQ2-vtdLc8SS4-L2cr-nCVBM_edsl5_rNJM1Vhewm2T8Jnw1KmZ5gysV0pjU21rSaDYNpX-YsR9J9vGofF_ls-ey3C4TFunj87o332ZDWRcto9zNJpmzsAk8tIySRpdBAMAvp7OH8kbAcoKzZoL7BbTHXDowpOtv7QthuM_kK_m3P141-OsQjg-I-NRy0gVjecgfu0caO2ES0zWq_NUg&sai=AMfl-YTBllLwbC6F0l3hniqHYbljM8rEw_1fcW8skxFbkYUIu0J4G-zvruOt1DaPB7Xv4HzG_f9G4Ix9D9adrjIh5GSGgSot0UGVYr13H5E3CH9p19BxsUEQJojJudMK&sig=Cg0ArKJSzHvvUdyN0IH8EAE&urlfix=1&adurl=$$&ord=2063408298&ucm=true": 242.34200018644333,
+     "https://platform.twitter.com/widgets.js": 237.87999993562698,
+     "https://secure-ds.serving-sys.com/BurstingCachedScripts//Ad_2_142_3_0/ebHtml5PoliteBanner.js": 207.50500014424324,
+     "https://www.googletagmanager.com/gtm.js?id=GTM-PN3HZW": 192.87200009822845,
+     "https://pagead2.googlesyndication.com/pagead/osd.js": 169.76800015568733 } }

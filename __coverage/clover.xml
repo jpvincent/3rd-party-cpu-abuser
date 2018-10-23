@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1540309443300" clover="3.2.0">
-  <project timestamp="1540309443300" name="All files">
-    <metrics statements="61" coveredstatements="38" conditionals="32" coveredconditionals="14" methods="11" coveredmethods="7" elements="104" coveredelements="59" complexity="0" loc="61" ncloc="61" packages="1" files="1" classes="1">
+<coverage generated="1540312046477" clover="3.2.0">
+  <project timestamp="1540312046478" name="All files">
+    <metrics statements="61" coveredstatements="39" conditionals="32" coveredconditionals="14" methods="11" coveredmethods="7" elements="104" coveredelements="60" complexity="0" loc="61" ncloc="61" packages="1" files="1" classes="1">
       <file name="index.js" path="/Users/jpv/Insync/Société/Clients/lexpress.fr/stat-cpu-domain/index.js">
-        <metrics statements="61" coveredstatements="38" conditionals="32" coveredconditionals="14" methods="11" coveredmethods="7"/>
+        <metrics statements="61" coveredstatements="39" conditionals="32" coveredconditionals="14" methods="11" coveredmethods="7"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
-        <line num="14" count="5" type="stmt"/>
-        <line num="15" count="5" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
+        <line num="14" count="6" type="stmt"/>
+        <line num="15" count="6" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
         <line num="20" count="5" type="cond" truecount="4" falsecount="0"/>
         <line num="21" count="2" type="stmt"/>
         <line num="23" count="3" type="stmt"/>
